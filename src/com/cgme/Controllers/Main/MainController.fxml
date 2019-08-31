@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cgme.Controllers.Main.MainController"
+            minHeight="400.0" minWidth="600.0">
+
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Button text="Show List" onAction="#printData"/>
+        <Button text="Refresh List" onAction="#refreshStatementList" />
+        <Button text="Add New Statements List" onAction="#openCreationWindow" />
+    </HBox>
+
+    <TextArea fx:id="dataArea" GridPane.rowIndex="1" GridPane.columnIndex="0" editable="false" minHeight="450" minWidth="500" />
+
+</GridPane>
