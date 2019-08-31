@@ -72,6 +72,7 @@ public class StatementCreatorController {
 
             statement = new Statement(field_name, field_is_consolidated, field_price);
             clearFields();
+            finishedButton.setDisable(false);
         }
     }
 
