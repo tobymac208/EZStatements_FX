@@ -6,7 +6,7 @@
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.cgme.Controllers.StatementCreator.StatementCreatorController"
-            minHeight="400.0" minWidth="600.0" hgap="20" vgap="20">
+            minHeight="400.0" minWidth="600.0" hgap="20" vgap="20" stylesheets="StatementCreatorStyle.css">
 
     <!-- A display box for holding buttons -->
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">

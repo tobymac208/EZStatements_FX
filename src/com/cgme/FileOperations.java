@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileOperations {
-    private static final String FILENAME = "src/com/cgme/data.txt";
+    private static final String FILENAME = "src/com/cgme/Resources/data.txt";
 
     /** Read in a list of Statements and returns it to the caller
      * Precondition: Have data in FILENAME
