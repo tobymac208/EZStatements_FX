@@ -43,7 +43,7 @@ public class MainController {
     @FXML
     void refreshStatementListAction(){
         // read in all of the statements again
-        statementTracker.setAllStatements(FileOperations.read_in_all_statements());
+        statementTracker.setAllStatements(statementTracker.getStatements());
         System.out.println("*Refreshed the list*");
     }
 
