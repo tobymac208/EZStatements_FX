@@ -34,7 +34,8 @@
     <!-- Contains items for taking the "price" of the statement -->
     <HBox GridPane.rowIndex="3" GridPane.columnIndex="0">
         <Label text="Price: " />
-        <TextField fx:id="price" />
+        <TextField editable="false" fx:id="price" />
+        <Button text="Add pay period" onAction="#addPayPeriodAction" />
     </HBox>
 
 </GridPane>

@@ -9,6 +9,90 @@
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.cgme.Controllers.StatementCreator.PayPeriodCreator.PayPeriodCreatorController"
-            prefHeight="400.0" prefWidth="600.0">
+            hgap="10" vgap="10">
+
+    <!-- Sunday (start of week) -->
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Label text="Sunday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="sunday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="sunday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Monday -->
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <Label text="Monday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="monday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="monday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Tuesday -->
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Label text="Tuesday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="tuesday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="tuesday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Wednesday -->
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <Label text="Wednesday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="wednesday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="wednesday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Thursday -->
+    <VBox GridPane.rowIndex="4" GridPane.columnIndex="0">
+        <Label text="Thursday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="thursday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="thursday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Friday -->
+    <VBox GridPane.rowIndex="5" GridPane.columnIndex="0">
+        <Label text="Friday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="friday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="friday_minutes" />
+        </HBox>
+    </VBox>
+
+    <!-- Saturday -->
+    <VBox GridPane.rowIndex="6" GridPane.columnIndex="0">
+        <Label text="Saturday" />
+        <HBox>
+            <Label text="Hours: " />
+            <TextField fx:id="saturday_hours" />
+            <Label text="Minutes: " />
+            <TextField fx:id="saturday_minutes" />
+        </HBox>
+    </VBox>
+
+    <HBox GridPane.rowIndex="7" GridPane.columnIndex="0">
+        <Label text="Pay rate" />
+        <TextField fx:id="payRate" />
+    </HBox>
+
+    <Button text="Submit" onAction="#calculatePayPeriod" GridPane.rowIndex="8" GridPane.columnIndex="0" />
 
 </GridPane>

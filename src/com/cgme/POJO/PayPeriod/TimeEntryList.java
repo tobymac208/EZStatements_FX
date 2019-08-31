@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class TimeEntryList {
     private ArrayList<TimeEntry> timeEntries;
 
-    public TimeEntryList(ArrayList<TimeEntry> timeEntries) {
+    public TimeEntryList() {
         this.timeEntries = new ArrayList<>();
     }
 

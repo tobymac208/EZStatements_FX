@@ -1,16 +1,25 @@
 package com.cgme.Controllers.StatementCreator;
 
+import com.cgme.Controllers.StatementCreator.PayPeriodCreator.PayPeriodCreatorController;
+import com.cgme.POJO.PayPeriod.PayPeriod;
 import com.cgme.POJO._Statement.Statement;
 import com.cgme.POJO._Statement.StatementTracker;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class StatementCreatorController {
     private Statement statement;
     private StatementTracker field_statementTracker;
+    private PayPeriod payPeriod;
 
     // FXML variables
     @FXML
@@ -21,6 +30,10 @@ public class StatementCreatorController {
     TextField price;
     @FXML
     Button closeButton;
+
+    public StatementCreatorController(){
+        this.payPeriod = new PayPeriod();
+    }
 
     public void passInStatementTracker(StatementTracker statementTracker){
         field_statementTracker = statementTracker; // passed by reference!
@@ -64,5 +77,38 @@ public class StatementCreatorController {
         name.setText("");
         is_consolidated.setSelected(false);
         price.setText("");
+    }
+
+    @FXML
+    public void addPayPeriodAction(){
+        try{
+            // Load an FXML file, using a specified resource
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PayPeriodCreator/PayPeriodCreatorController.fxml"));
+            Parent root = fxmlLoader.load();
+
+            PayPeriodCreatorController payPeriodCreatorController = fxmlLoader.getController();
+            payPeriodCreatorController.passInReferenceToPayPeriod(payPeriod);
+
+            // Create a stage to work with
+            Stage stage = new Stage();
+            stage.setHeight(750);
+            stage.setWidth(550);
+
+            // Set the modality -- how this window interacts with other windows
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Set a title for the new window
+            stage.setTitle("Create new pay period");
+
+            // Set the scene for the stage
+            stage.setScene(new Scene(root));
+
+            // Show the new window
+            stage.show();
+
+            price.setText(String.valueOf(payPeriod.calculatePayForPeriod()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

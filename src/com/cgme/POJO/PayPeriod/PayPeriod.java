@@ -9,6 +9,11 @@ public class PayPeriod {
         this.payRate = payRate;
     }
 
+    public PayPeriod(){
+        this.timeEntryList = null;
+        this.payRate = 0;
+    }
+
     public TimeEntryList getTimeEntryList() {
         return timeEntryList;
     }

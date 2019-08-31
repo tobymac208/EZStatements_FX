@@ -52,19 +52,21 @@ public class MainController {
         try{
             // Load an FXML file, using a specified resource
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../StatementCreator/StatementCreatorController.fxml"));
-            Parent root = (Parent)fxmlLoader.load();
+            Parent root = fxmlLoader.load();
 
             StatementCreatorController statementCreatorController = fxmlLoader.getController();
             statementCreatorController.passInStatementTracker(statementTracker);
 
             // Create a stage to work with
             Stage stage = new Stage();
+            stage.setHeight(750);
+            stage.setWidth(550);
 
             // Set the modality -- how this window interacts with other windows
             stage.initModality(Modality.APPLICATION_MODAL);
 
             // Set a title for the new window
-            stage.setTitle("Create new Statements list");
+            stage.setTitle("Create new statement");
 
             // Set the scene for the stage
             stage.setScene(new Scene(root));
