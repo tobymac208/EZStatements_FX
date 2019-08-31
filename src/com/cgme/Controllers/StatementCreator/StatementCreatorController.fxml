@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.cgme.Controllers.StatementCreator.StatementCreatorController"
-            minHeight="400.0" minWidth="600.0" hgap="20" vgap="20" stylesheets="StatementCreatorStyle.css">
+<GridPane hgap="20" minHeight="400.0" minWidth="600.0" stylesheets="@../../Resources/master.css" vgap="20"
+          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.cgme.Controllers.StatementCreator.StatementCreatorController">
 
     <!-- A display box for holding buttons -->
-    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
         <!-- When clicked, this closes the window -->
-        <Button text="Cancel" fx:id="closeButton" onAction="#exitAction" />
+        <Button fx:id="closeButton" onAction="#exitAction" text="Cancel" />
     </HBox>
 
     <!-- Contains items for taking the "date" of the statement -->
-    <HBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
         <Label text="Date: " />
         <!-- TODO: Finish implementing DatePicker -->
         <DatePicker fx:id="datePicker" />
     </HBox>
 
     <!-- Contains items for taking the "consolidated" of the statement -->
-    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2">
         <Label text="Is consolidated: " />
-        <RadioButton fx:id="is_consolidated"/>
+        <RadioButton fx:id="is_consolidated" />
     </HBox>
 
     <!-- Contains items for taking the "price" of the statement -->
-    <HBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="3">
         <Label text="Price: " />
-        <TextField editable="false" fx:id="price" />
-        <Button text="Add pay period" onAction="#addPayPeriodAction" />
+        <TextField fx:id="price" editable="false" />
+        <Button onAction="#addPayPeriodAction" text="Add pay period" />
     </HBox>
 
-    <HBox GridPane.rowIndex="4" GridPane.columnIndex="0">
-        <Button text="Add New Statement" fx:id="addStatementButton" onAction="#addNewStatementAction" />
-        <Button text="Finished" fx:id="finishedButton" onAction="#finishUpAction" />
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="4">
+        <Button fx:id="addStatementButton" onAction="#addNewStatementAction" text="Add New Statement" />
+        <Button fx:id="finishedButton" onAction="#finishUpAction" text="Finished" />
     </HBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>
