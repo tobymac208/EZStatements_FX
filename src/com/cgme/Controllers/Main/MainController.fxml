@@ -15,7 +15,7 @@
         <Button text="Print" onAction="#printDataAction"/>
         <Button text="Refresh" onAction="#refreshStatementListAction" />
         <Button text="Add New Statement" onAction="#openCreationWindowAction" />
-        <Button text="Exit and Save" onAction="#exitApplicationAction" />
+        <Button text="Save and Exit" onAction="#exitApplicationAction" />
     </HBox>
 
     <TextArea fx:id="dataArea" GridPane.rowIndex="1" GridPane.columnIndex="0" editable="false" minHeight="450" minWidth="500" />

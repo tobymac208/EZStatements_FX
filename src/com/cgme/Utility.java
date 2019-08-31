@@ -4,7 +4,6 @@ import com.cgme.POJO._Statement.Statement;
 
 import java.util.Scanner;
 
-@Deprecated
 /** Gives a user the ability to use small, quick static functions to do necessary operations.
  * Author: Nik Fernandez
  * Created: 08/25/2019

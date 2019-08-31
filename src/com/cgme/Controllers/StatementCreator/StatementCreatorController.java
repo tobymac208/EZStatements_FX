@@ -4,6 +4,7 @@ import com.cgme.Controllers.StatementCreator.PayPeriodCreator.PayPeriodCreatorCo
 import com.cgme.POJO.PayPeriod.PayPeriod;
 import com.cgme.POJO._Statement.Statement;
 import com.cgme.POJO._Statement.StatementTracker;
+import com.cgme.Utility;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -104,9 +105,9 @@ public class StatementCreatorController {
             stage.setScene(new Scene(root));
 
             // Show the new window
-            stage.show();
+            stage.showAndWait();
 
-            price.setText(String.valueOf(payPeriod.calculatePayForPeriod()));
+            price.setText(String.valueOf(Utility.round_double(payPeriod.calculatePayForPeriod())));
         }catch (IOException e){
             e.printStackTrace();
         }

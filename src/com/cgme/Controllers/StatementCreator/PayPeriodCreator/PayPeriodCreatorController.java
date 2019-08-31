@@ -4,7 +4,9 @@ import com.cgme.POJO.PayPeriod.PayPeriod;
 import com.cgme.POJO.PayPeriod.TimeEntry;
 import com.cgme.POJO.PayPeriod.TimeEntryList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class PayPeriodCreatorController {
     private PayPeriod referenceToPayPeriod;
@@ -48,6 +50,9 @@ public class PayPeriodCreatorController {
     TextField payRate;
 
     @FXML
+    Button submit_button;
+
+    @FXML
     void calculatePayPeriod(){
         // Make sure all fields have something in them
         if(sunday_hours.getText().trim().length() >= 1 && sunday_minutes.getText().trim().length() >= 1 && monday_hours.getText().trim().length() >= 1
@@ -81,6 +86,12 @@ public class PayPeriodCreatorController {
             entryList.addTimeEntry(saturday_entry);
 
             referenceToPayPeriod.setTimeEntryList(entryList);
+            referenceToPayPeriod.setPayRate(Double.parseDouble(payRate.getText()));
+
+            // Get a handle for the stage
+            Stage stage = (Stage)submit_button.getScene().getWindow();
+            // close the window
+            stage.close();
         }
     }
 
