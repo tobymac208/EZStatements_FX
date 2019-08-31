@@ -1,8 +1,7 @@
 package com.cgme.Controllers.Main;
 
 import com.cgme.Controllers.StatementCreator.StatementCreatorController;
-import com.cgme.Utility;
-import com.cgme._Statement.StatementTracker;
+import com.cgme.POJO._Statement.StatementTracker;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import com.cgme.FileOperations;

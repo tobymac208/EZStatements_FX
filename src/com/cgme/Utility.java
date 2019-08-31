@@ -1,6 +1,6 @@
 package com.cgme;
 
-import com.cgme._Statement.Statement;
+import com.cgme.POJO._Statement.Statement;
 
 import java.util.Scanner;
 

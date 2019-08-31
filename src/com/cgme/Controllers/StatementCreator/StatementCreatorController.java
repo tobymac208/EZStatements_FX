@@ -1,7 +1,7 @@
 package com.cgme.Controllers.StatementCreator;
 
-import com.cgme._Statement.Statement;
-import com.cgme._Statement.StatementTracker;
+import com.cgme.POJO._Statement.Statement;
+import com.cgme.POJO._Statement.StatementTracker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;

@@ -1,4 +1,4 @@
-package com.cgme._Statement;
+package com.cgme.POJO._Statement;
 
 public class Statement{
     // Name for the statement
