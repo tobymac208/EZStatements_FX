@@ -31,9 +31,20 @@ public class StatementCreatorController {
     TextField price;
     @FXML
     Button closeButton;
+    @FXML
+    Button finishedButton;
+    @FXML
+    Button addStatementButton;
 
     public StatementCreatorController(){
         this.payPeriod = new PayPeriod();
+    }
+
+    @FXML
+    public void initialize(){
+        // Disable the buttons
+        finishedButton.setDisable(true);
+        addStatementButton.setDisable(true);
     }
 
     public void passInStatementTracker(StatementTracker statementTracker){
@@ -107,9 +118,24 @@ public class StatementCreatorController {
             // Show the new window
             stage.showAndWait();
 
-            price.setText(String.valueOf(Utility.round_double(payPeriod.calculatePayForPeriod())));
+            if(payPeriod.getTimeEntryList() == null){
+                System.out.println("The creation failed.");
+            }else{
+                price.setText(String.valueOf(Utility.round_double(payPeriod.calculatePayForPeriod())));
+            }
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onKeyReleasedAction(){
+        // Is there anything in the name?
+        if(name.getText().trim().length() >= 1){
+            // Make sure there's a value in the price
+            if(price.getText().trim().length() >= 1){
+                addStatementButton.setDisable(false);
+            }
         }
     }
 }

@@ -11,15 +11,15 @@
     <!-- A display box for holding buttons -->
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
         <!-- When clicked, this closes the window and  -->
-        <Button text="Finished" onAction="#finishUpAction" />
-        <Button text="Add New Statement" onAction="#addNewStatementAction" />
+        <Button text="Finished" fx:id="finishedButton" onAction="#finishUpAction" />
+        <Button text="Add New Statement" fx:id="addStatementButton" onAction="#addNewStatementAction" />
         <Button text="Cancel" fx:id="closeButton" onAction="#exitAction" />
     </HBox>
 
     <!-- Contains items for taking the "name" of the statement -->
     <HBox GridPane.rowIndex="1" GridPane.columnIndex="0">
         <Label text="Name: " />
-        <TextField fx:id="name" />
+        <TextField fx:id="name" onKeyReleased="#onKeyReleasedAction"/>
     </HBox>
 
     <!-- Contains items for taking the "consolidated" of the statement -->
