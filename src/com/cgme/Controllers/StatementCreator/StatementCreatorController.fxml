@@ -9,8 +9,32 @@
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.cgme.Controllers.StatementCreator.StatementCreatorController"
-            minHeight="400.0" minWidth="600.0">
+            minHeight="400.0" minWidth="600.0" hgap="20" vgap="20">
 
+    <!-- A display box for holding buttons -->
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <!-- When clicked, this closes the window and  -->
+        <Button text="Finished" onAction="#finishUpAction" />
+        <Button text="Add New Statement" onAction="#addNewStatementAction" />
+        <Button text="Cancel" fx:id="closeButton" onAction="#exitAction" />
+    </HBox>
 
+    <!-- Contains items for taking the "name" of the statement -->
+    <HBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <Label text="Name: " />
+        <TextField fx:id="name" />
+    </HBox>
+
+    <!-- Contains items for taking the "consolidated" of the statement -->
+    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Label text="Is consolidated: " />
+        <RadioButton fx:id="is_consolidated"/>
+    </HBox>
+
+    <!-- Contains items for taking the "price" of the statement -->
+    <HBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <Label text="Price: " />
+        <TextField fx:id="price" />
+    </HBox>
 
 </GridPane>
