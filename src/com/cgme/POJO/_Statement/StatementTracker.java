@@ -43,7 +43,7 @@ public class StatementTracker {
         float percentagePaid;
 
         for(Statement current_statement : the_statements.getStatements()){
-            System.out.println("[" + count + "] " + current_statement.getName() +
+            System.out.println("[" + count + "] " + current_statement.getDate() +
                     "\n\t\tAmount: $" + current_statement.getPriceOfStatement() +
                     "\n\t\tConsolidated: " + current_statement.isConsolidated());
 
@@ -98,7 +98,7 @@ public class StatementTracker {
         // Iterate through our list
         for(Statement current_statement : the_statements.getStatements()){
             // For each Statement, add the data to the string
-            bufferedString += "[" + count + "] " + current_statement.getName() +
+            bufferedString += "[" + count + "] " + current_statement.getDate() +
                     "\n\t\tAmount: $" + current_statement.getPriceOfStatement() +
                     "\n\t\tConsolidated: " + current_statement.isConsolidated() + "\n";
 

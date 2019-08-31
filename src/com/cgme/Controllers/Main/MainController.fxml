@@ -12,12 +12,15 @@
             minHeight="400.0" minWidth="600.0" hgap="10" vgap="10">
 
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
-        <Button text="Print" onAction="#printDataAction"/>
-        <Button text="Refresh" onAction="#refreshStatementListAction" />
-        <Button text="Add New Statement" onAction="#openCreationWindowAction" />
         <Button text="Save and Exit" onAction="#exitApplicationAction" />
     </HBox>
 
     <TextArea fx:id="dataArea" GridPane.rowIndex="1" GridPane.columnIndex="0" editable="false" minHeight="450" minWidth="500" />
+
+    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Button text="Print" onAction="#printDataAction"/>
+        <Button text="Refresh" onAction="#refreshStatementListAction" />
+        <Button text="Add New Statement" onAction="#openCreationWindowAction" />
+    </HBox>
 
 </GridPane>

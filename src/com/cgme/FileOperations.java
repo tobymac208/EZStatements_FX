@@ -82,7 +82,7 @@ public class FileOperations {
 
         try(PrintWriter writer = new PrintWriter(file)){
             for(Statement current_statement : value.getStatements()){
-                writer.println(current_statement.getName() + ", " + current_statement.isConsolidated() + ", "
+                writer.println(current_statement.getDate() + ", " + current_statement.isConsolidated() + ", "
                         + current_statement.getPriceOfStatement());
             }
 

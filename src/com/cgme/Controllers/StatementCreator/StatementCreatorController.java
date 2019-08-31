@@ -10,12 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class StatementCreatorController {
     private Statement statement;
@@ -24,7 +26,7 @@ public class StatementCreatorController {
 
     // FXML variables
     @FXML
-    TextField name;
+    DatePicker datePicker;
     @FXML
     RadioButton is_consolidated;
     @FXML
@@ -40,11 +42,13 @@ public class StatementCreatorController {
         this.payPeriod = new PayPeriod();
     }
 
+    /** Preliminary actions to run */
     @FXML
     public void initialize(){
-        // Disable the buttons
+        // Disable the button
         finishedButton.setDisable(true);
-        addStatementButton.setDisable(true);
+
+        datePicker.setEditable(false);
     }
 
     public void passInStatementTracker(StatementTracker statementTracker){
@@ -63,14 +67,22 @@ public class StatementCreatorController {
     @FXML
     void addNewStatementAction(){
         // Make use the fields have something in them
-        if(name.getText().trim().length() >= 2 && price.getText().trim() .length() >= 1){
-            // Process the data
-            String field_name = name.getText();
+        if(price.getText().trim() .length() >= 1 && datePicker.getValue() != null){
+            // Get the DatePicker information
+            LocalDate fieldName = datePicker.getValue();
+            System.out.println("field name = " + fieldName.toString());
+            // Convert to the preferred style
+            String[] fieldNamesStrings = fieldName.toString().split("-");
+            String year = fieldNamesStrings[0], month = fieldNamesStrings[1], day = fieldNamesStrings[2];
+            String formattedString = month + "/" + day + "/" + year;
+
+            // Boolean for "is consolidated"
             boolean field_is_consolidated = is_consolidated.isSelected();
+
             // TODO: Deal with application crashing
             double field_price = Double.parseDouble(price.getText());
 
-            statement = new Statement(field_name, field_is_consolidated, field_price);
+            statement = new Statement(formattedString, field_is_consolidated, field_price);
             clearFields();
             finishedButton.setDisable(false);
         }
@@ -87,7 +99,7 @@ public class StatementCreatorController {
     }
 
     private void clearFields(){
-        name.setText("");
+        datePicker.getEditor().clear();
         is_consolidated.setSelected(false);
         price.setText("");
     }
@@ -126,17 +138,6 @@ public class StatementCreatorController {
             }
         }catch (IOException e){
             e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void onKeyReleasedAction(){
-        // Is there anything in the name?
-        if(name.getText().trim().length() >= 1){
-            // Make sure there's a value in the price
-            if(price.getText().trim().length() >= 1){
-                addStatementButton.setDisable(false);
-            }
         }
     }
 }

@@ -2,22 +2,22 @@ package com.cgme.POJO._Statement;
 
 public class Statement{
     // Name for the statement
-    private String name;
+    private String date;
     // Flag for checking whether the statement has been dealt with
     private boolean statement_consolidated;
     // Amount of money for the statement
     private double price_of_statement;
 
     /** Default, all-arg constructor. */
-    public Statement(String name,boolean statement_consolidated, double price_of_statement){
-        this.name = name;
+    public Statement(String date, boolean statement_consolidated, double price_of_statement){
+        this.date = date;
         this.statement_consolidated = statement_consolidated;
         this.price_of_statement = price_of_statement;
     }
 
     /** Name getter */
-    public String getName(){
-        return name;
+    public String getDate(){
+        return date;
     }
 
     /** Statement flag getter */
@@ -39,6 +39,6 @@ public class Statement{
      * Precondition: Pass in an initialized Statement
      * Post-condition: Receive a true or false value. */
     boolean equals(Statement value){
-        return value.getName().equals(name);
+        return value.getDate().equals(date);
     }
 }
