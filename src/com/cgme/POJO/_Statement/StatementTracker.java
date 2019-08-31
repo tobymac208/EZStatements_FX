@@ -74,8 +74,6 @@ public class StatementTracker {
         System.out.println("\n");
     }
 
-
-    // TODO: Get same result with output as we have with the above code.
     /** Returns a detailed list of all the Statement data. */
     public String new_PrintStatementData(){
         if(the_statements.getStatements().size() < 1){
