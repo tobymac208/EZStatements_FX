@@ -1,6 +1,7 @@
 package com.cgme.Controllers.StatementCreator;
 
 import com.cgme._Statement.Statement;
+import com.cgme._Statement.StatementTracker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 
 public class StatementCreatorController {
     private Statement statement;
+    private StatementTracker field_statementTracker;
 
     // FXML variables
     @FXML
@@ -19,6 +21,10 @@ public class StatementCreatorController {
     TextField price;
     @FXML
     Button closeButton;
+
+    public void passInStatementTracker(StatementTracker statementTracker){
+        field_statementTracker = statementTracker; // passed by reference!
+    }
 
     @FXML
     void exitAction(){
@@ -44,11 +50,12 @@ public class StatementCreatorController {
         }
     }
 
-    /** Used for finishing up with this window and returning the statements list to the caller. */
+    /** Used for finishing up with this window and returning the statement to the caller. */
     @FXML
     void finishUpAction(){
-        // Make use the Statement isn't null
+        // Make sure the Statement isn't null
         if(statement != null) {
+            field_statementTracker.addStatement(statement);
             exitAction(); // close the window
         }
     }

@@ -16,6 +16,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void stop(){
+        System.out.println("Application closing.");
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

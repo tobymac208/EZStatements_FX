@@ -4,6 +4,7 @@ import com.cgme._Statement.Statement;
 
 import java.util.Scanner;
 
+@Deprecated
 /** Gives a user the ability to use small, quick static functions to do necessary operations.
  * Author: Nik Fernandez
  * Created: 08/25/2019
@@ -14,6 +15,7 @@ public class Utility{
         return Math.round(value * 100.00) / 100.00;
     }
 
+    @Deprecated
     /** Prompts a user for creating a new statement.
      * Precondition: Enter valid information.
      * Post-condition: Receive an initialized Statement object. */
@@ -49,6 +51,7 @@ public class Utility{
     }
 
     /** Make some specified space in the terminal. Value == number of lines */
+    @Deprecated
     static void clearTerminal(int value){
         for(int i = 0; i < value; i++){
             System.out.println();

@@ -1,7 +1,9 @@
 package com.cgme.Controllers.Main;
 
 import com.cgme.Controllers.StatementCreator.StatementCreatorController;
+import com.cgme.Utility;
 import com.cgme._Statement.StatementTracker;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import com.cgme.FileOperations;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 /** Defines the class for controlling the main style and functionality of our application. */
 public class MainController {
@@ -54,6 +55,9 @@ public class MainController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../StatementCreator/StatementCreatorController.fxml"));
             Parent root = (Parent)fxmlLoader.load();
 
+            StatementCreatorController statementCreatorController = fxmlLoader.getController();
+            statementCreatorController.passInStatementTracker(statementTracker);
+
             // Create a stage to work with
             Stage stage = new Stage();
 
@@ -71,5 +75,14 @@ public class MainController {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    /** Called to close the application */
+    @FXML
+    void exitApplicationAction(){
+        // Write data to the file
+        FileOperations.write_data_to_file(statementTracker.getStatements());
+
+        Platform.exit(); // call this method to trigger the stop() call
     }
 }
