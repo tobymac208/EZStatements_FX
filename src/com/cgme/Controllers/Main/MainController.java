@@ -15,8 +15,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.text.ParseException;
 
 /** Defines the class for controlling the main style and functionality of our application. */
 public class MainController {
