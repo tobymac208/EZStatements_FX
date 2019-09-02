@@ -23,7 +23,6 @@
     <!-- Contains items for taking the "date" of the statement -->
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
         <Label text="Date: " />
-        <!-- TODO: Finish implementing DatePicker -->
         <DatePicker fx:id="datePicker" />
     </HBox>
 

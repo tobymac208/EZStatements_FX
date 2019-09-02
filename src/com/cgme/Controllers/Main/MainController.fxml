@@ -23,4 +23,11 @@
         <Button text="Add New Statement" onAction="#openCreationWindowAction" />
     </HBox>
 
+    <HBox GridPane.rowIndex="3">
+        <TextField fx:id="numberToFlip" promptText="# to flip" />
+        <Button text="Submit" onAction="#flipBoolean" />
+    </HBox>
+
+    <Label fx:id="errorLabel" GridPane.rowIndex="4" />
+
 </GridPane>

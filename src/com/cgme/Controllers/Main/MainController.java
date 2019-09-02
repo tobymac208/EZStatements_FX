@@ -8,7 +8,9 @@ import com.cgme.FileOperations;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,6 +22,10 @@ public class MainController {
 
     @FXML
     TextArea dataArea;
+    @FXML
+    TextField numberToFlip;
+    @FXML
+    Label errorLabel;
 
     public MainController(){
         // initialize our statement tracker
@@ -43,7 +49,8 @@ public class MainController {
     void refreshStatementListAction(){
         // read in all of the statements again
         statementTracker.setAllStatements(statementTracker.getStatements());
-        System.out.println("*Refreshed the list*");
+
+        errorLabel.setText("*Refreshed the list*");
     }
 
     /** Create a new Statements list */
@@ -85,5 +92,30 @@ public class MainController {
         FileOperations.write_data_to_file(statementTracker.getStatements());
 
         Platform.exit(); // call this method to trigger the stop() call
+    }
+
+    /** Flips a specified "consolidated" value */
+    @FXML
+    void flipBoolean(){
+        String numberChosenToFlip = numberToFlip.getText();
+        int actualNumber;
+
+        if(numberChosenToFlip.length() >= 1){
+            actualNumber = Integer.parseInt(numberChosenToFlip);
+        }else{
+            // exit the function
+            errorLabel.setText("Nothing was entered.");
+            return;
+        }
+
+        // Is that a valid number?
+        if(actualNumber > statementTracker.getStatements().getStatements().size() - 1 || actualNumber < 0){
+            errorLabel.setText("Invalid number.");
+        }else{
+            boolean val = statementTracker.getStatements().getStatements().get(actualNumber).isConsolidated();
+            statementTracker.getStatements().getStatements().get(actualNumber).setConsolidated(!val); // flips the value
+            errorLabel.setText("Boolean value (index " + actualNumber + ") successfully changed to " + !val);
+            printDataAction();
+        }
     }
 }
