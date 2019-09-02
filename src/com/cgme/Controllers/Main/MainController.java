@@ -15,6 +15,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.text.ParseException;
 
 /** Defines the class for controlling the main style and functionality of our application. */
 public class MainController {
@@ -101,7 +103,12 @@ public class MainController {
         int actualNumber;
 
         if(numberChosenToFlip.length() >= 1){
-            actualNumber = Integer.parseInt(numberChosenToFlip);
+            try {
+                actualNumber = Integer.parseInt(numberChosenToFlip);
+            }catch (Exception e){
+                errorLabel.setText("Invalid entry.");
+                return;
+            }
         }else{
             // exit the function
             errorLabel.setText("Nothing was entered.");
