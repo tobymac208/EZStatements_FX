@@ -38,6 +38,16 @@ public class Statements{
         return false;
     }
 
+    /** Remove a statement from the list. */
+    boolean removeStatement(int value){
+        if(value > list_of_statements.size() - 1 || value < 0){
+            return false;
+        }else{
+            list_of_statements.remove(value);
+            return true;
+        }
+    }
+
     /** Returns an ArrayList of statements. */
     public ArrayList<Statement> getStatements(){
         // Return the statements

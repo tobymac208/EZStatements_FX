@@ -28,6 +28,11 @@
         <Button text="Submit" onAction="#flipBoolean" />
     </HBox>
 
-    <Label fx:id="errorLabel" GridPane.rowIndex="4" />
+    <HBox GridPane.rowIndex="4">
+        <TextField fx:id="numberToRemove" promptText="# to remove" />
+        <Button text="Submit" onAction="#removeStatement" />
+    </HBox>
+
+    <Label fx:id="errorLabel" GridPane.rowIndex="5" />
 
 </GridPane>

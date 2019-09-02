@@ -25,6 +25,11 @@ public class StatementTracker {
         return the_statements.removeStatement(value);
     }
 
+    /** Remove a statement from the list. */
+    public boolean removeStatement(int value){
+        return the_statements.removeStatement(value);
+    }
+
     /** Prints out a detailed list of the Statement data. */
     public void printStatementData(){
         if(the_statements.getStatements().size() < 1){

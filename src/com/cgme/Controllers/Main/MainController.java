@@ -25,6 +25,8 @@ public class MainController {
     @FXML
     TextField numberToFlip;
     @FXML
+    TextField numberToRemove;
+    @FXML
     Label errorLabel;
 
     public MainController(){
@@ -120,6 +122,32 @@ public class MainController {
             boolean val = statementTracker.getStatements().getStatements().get(actualNumber).isConsolidated();
             statementTracker.getStatements().getStatements().get(actualNumber).setConsolidated(!val); // flips the value
             errorLabel.setText("Boolean value (index " + actualNumber + ") successfully changed to " + !val);
+            printDataAction();
+        }
+    }
+
+    /** Remove a specified statement */
+    @FXML
+    void removeStatement(){
+        int numChosen;
+
+        if(!(numberToRemove.getLength() > 1)){
+            errorLabel.setText("Nothing was entered.");
+        }
+
+        try {
+            numChosen = Integer.parseInt(numberToRemove.getText());
+
+        }catch (Exception e){
+            errorLabel.setText("Invalid entry.");
+            return; // return to caller
+        }
+
+        if(numChosen > statementTracker.getStatements().getStatements().size() - 1 || numChosen < 0){
+            errorLabel.setText("Invalid number.");
+        }else{
+            statementTracker.removeStatement(numChosen);
+            errorLabel.setText("Statement (index " + numChosen + ") successfully remove.");
             printDataAction();
         }
     }
