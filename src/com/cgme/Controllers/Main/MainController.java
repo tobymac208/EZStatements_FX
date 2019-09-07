@@ -36,6 +36,12 @@ public class MainController {
         statementTracker.setAllStatements(FileOperations.read_in_all_statements());
     }
 
+    @FXML
+    public void initialize(){
+        // Print all of the data to the TextArea
+        printDataAction();
+    }
+
     /** Prints out all data for the user to view. */
     @FXML
     void printDataAction(){
@@ -105,6 +111,7 @@ public class MainController {
         if(numberChosenToFlip.length() >= 1){
             try {
                 actualNumber = Integer.parseInt(numberChosenToFlip);
+                numberToFlip.clear();
             }catch (Exception e){
                 errorLabel.setText("Invalid entry.");
                 return;

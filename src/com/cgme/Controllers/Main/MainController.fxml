@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.cgme.Controllers.Main.MainController"
-            minHeight="400.0" minWidth="600.0" hgap="10" vgap="10">
+<GridPane hgap="10" minHeight="400.0" minWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cgme.Controllers.Main.MainController">
 
-    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
-        <Button text="Save and Exit" onAction="#exitApplicationAction" />
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Button onAction="#exitApplicationAction" text="Save and Exit" />
     </HBox>
 
-    <TextArea fx:id="dataArea" GridPane.rowIndex="1" GridPane.columnIndex="0" editable="false" minHeight="450" minWidth="500" />
+    <TextArea fx:id="dataArea" editable="false" minHeight="450" minWidth="500" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <Button text="Print" onAction="#printDataAction"/>
-        <Button text="Refresh" onAction="#refreshStatementListAction" />
-        <Button text="Add New Statement" onAction="#openCreationWindowAction" />
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button onAction="#printDataAction" text="Print" />
+        <Button onAction="#refreshStatementListAction" text="Refresh" />
+        <Button onAction="#openCreationWindowAction" text="Add New Statement" />
     </HBox>
 
     <HBox GridPane.rowIndex="3">
         <TextField fx:id="numberToFlip" promptText="# to flip" />
-        <Button text="Submit" onAction="#flipBoolean" />
+        <Button onAction="#flipBoolean" text="Submit" />
     </HBox>
 
     <HBox GridPane.rowIndex="4">
         <TextField fx:id="numberToRemove" promptText="# to remove" />
-        <Button text="Submit" onAction="#removeStatement" />
+        <Button onAction="#removeStatement" text="Submit" />
     </HBox>
 
     <Label fx:id="errorLabel" GridPane.rowIndex="5" />
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>
