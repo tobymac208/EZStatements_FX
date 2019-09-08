@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="20" minHeight="400.0" minWidth="600.0" stylesheets="@../../Resources/master.css" vgap="20"
+<GridPane hgap="20" minHeight="400.0" minWidth="600.0" vgap="20"
           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="com.cgme.Controllers.StatementCreator.StatementCreatorController">
 
