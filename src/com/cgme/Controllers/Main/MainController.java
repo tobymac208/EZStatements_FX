@@ -18,7 +18,7 @@ import java.io.IOException;
 
 /** Defines the class for controlling the main style and functionality of our application. */
 public class MainController {
-    private static StatementTracker statementTracker;
+    private StatementTracker statementTracker;
 
     @FXML
     TextArea dataArea;
@@ -31,7 +31,9 @@ public class MainController {
 
     /** No-arg constructor */
     public MainController(){
-        System.out.println("Main constructor has been called");
+        statementTracker = new StatementTracker("Rio Home Services Pay");
+
+        statementTracker.setAllStatements(FileOperations.read_in_all_statements());
     }
 
     /** Pass the data by reference. */
@@ -48,9 +50,6 @@ public class MainController {
     /** Prints out all data for the user to view. */
     @FXML
     void printDataAction(){
-        // Set up a string to print to the data area
-        String bufferedString = "";
-
         // Set our text box equal to our String that was returned.
         dataArea.setText(statementTracker.new_PrintStatementData());
     }

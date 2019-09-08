@@ -11,7 +11,7 @@ import javafx.stage.WindowEvent;
 import com.cgme.POJO._Statement.StatementTracker;
 
 public class Main extends Application {
-    private static StatementTracker statementTracker = new StatementTracker("Rio Home Services Pay");
+    private StatementTracker statementTracker = new StatementTracker("Carlos Steamy Pants Pay");
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,7 +19,7 @@ public class Main extends Application {
         Parent root = fxmlLoader.load();
 
         primaryStage.setTitle("EZStatements v1.0");
-        primaryStage.setScene(new Scene(root, 750, 500));
+        primaryStage.setScene(new Scene(root, 550, 750));
 
         // Load in all of the data from the file
         statementTracker.setAllStatements(FileOperations.read_in_all_statements());
@@ -29,7 +29,7 @@ public class Main extends Application {
         controller.passTrackerByReference(statementTracker);
 
         // Open the new window
-        primaryStage.showAndWait();
+        primaryStage.show();
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
