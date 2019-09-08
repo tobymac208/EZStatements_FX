@@ -29,11 +29,14 @@ public class MainController {
     @FXML
     Label errorLabel;
 
+    /** No-arg constructor */
     public MainController(){
-        // initialize our statement tracker
-        statementTracker = new StatementTracker("Rio Home Services Pay");
-        // load in the Statements
-        statementTracker.setAllStatements(FileOperations.read_in_all_statements());
+        System.out.println("Main constructor has been called");
+    }
+
+    /** Pass the data by reference. */
+    public void passTrackerByReference(StatementTracker tracker){
+        statementTracker = tracker;
     }
 
     @FXML
@@ -68,23 +71,18 @@ public class MainController {
             // Load an FXML file, using a specified resource
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../StatementCreator/StatementCreatorController.fxml"));
             Parent root = fxmlLoader.load();
+            // Create a stage to work with
+            Stage stage = new Stage();
+            // Set a title for the new window
+            stage.setTitle("EZStatements v1.0: Create new statement");
+            // Set the scene for the stage
+            stage.setScene(new Scene(root, 750, 500));
 
             StatementCreatorController statementCreatorController = fxmlLoader.getController();
             statementCreatorController.passInStatementTracker(statementTracker);
 
-            // Create a stage to work with
-            Stage stage = new Stage();
-            stage.setHeight(750);
-            stage.setWidth(550);
-
             // Set the modality -- how this window interacts with other windows
             stage.initModality(Modality.APPLICATION_MODAL);
-
-            // Set a title for the new window
-            stage.setTitle("Create new statement");
-
-            // Set the scene for the stage
-            stage.setScene(new Scene(root));
 
             // Show the new window
             stage.show();
