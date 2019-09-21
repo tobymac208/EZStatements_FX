@@ -18,6 +18,7 @@ public class Statements{
         for(Statement current_statement : list_of_statements){
             if(current_statement.equals(value)){
                 System.out.println("Copy attempted. Name: " + current_statement.getDate());
+                return;
             }
         }
 

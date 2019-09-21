@@ -30,57 +30,8 @@ public class StatementTracker {
         return the_statements.removeStatement(value);
     }
 
-    /** Prints out a detailed list of the Statement data. */
-    public void printStatementData(){
-        if(the_statements.getStatements().size() < 1){
-            System.out.println("No data to examine.");
-            return; // return to the caller.
-        }
-
-        System.out.println("Data for tracker \"" + title_of_tracker + "\"");
-
-        int count = 0;
-
-        // Tracks how much is still owed -- based on statements that aren't consolidated
-        float totalAmountOwed = 0;
-        float totalAmountPaid = 0;
-        float totalAmount = 0;
-        float percentagePaid;
-
-        for(Statement current_statement : the_statements.getStatements()){
-            System.out.println("[" + count + "] " + current_statement.getDate() +
-                    "\n\t\tAmount: $" + current_statement.getPriceOfStatement() +
-                    "\n\t\tConsolidated: " + current_statement.isConsolidated());
-
-            // Add to the total number of entries
-            count++;
-
-            // Add to the total amount of money involved
-            totalAmount += current_statement.getPriceOfStatement();
-
-            // Checks whether the statement is settled or not
-            if( !(current_statement.isConsolidated()) ){ // is the current statement not dealt with?
-                totalAmountOwed += current_statement.getPriceOfStatement();
-            }else{
-                totalAmountPaid += current_statement.getPriceOfStatement();
-            }
-        }
-        // Calculate the percentage paid
-        percentagePaid = (totalAmountPaid / totalAmount) * 100;
-
-        System.out.println("\n");
-
-        // Print out the final data
-        System.out.println("Data collected from " + count + " entry/entries.");
-        System.out.println("Total amount owed: $" + Utility.round_double(totalAmountOwed));
-        System.out.println("Total amount paid: $" + Utility.round_double(totalAmountPaid) );
-        System.out.println("% paid: " + Utility.round_double(percentagePaid) + "%");
-
-        System.out.println("\n");
-    }
-
     /** Returns a detailed list of all the Statement data. */
-    public String new_PrintStatementData(){
+    public String printStatementData(){
         if(the_statements.getStatements().size() < 1){
             System.out.println("No data to examine.");
             return null; // return to the caller.

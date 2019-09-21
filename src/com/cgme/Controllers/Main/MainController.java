@@ -51,7 +51,7 @@ public class MainController {
     @FXML
     void printDataAction(){
         // Set our text box equal to our String that was returned.
-        dataArea.setText(statementTracker.new_PrintStatementData());
+        dataArea.setText(statementTracker.printStatementData());
     }
 
     /** Refreshes the Statement list */
